@@ -1,0 +1,52 @@
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes floatHearts {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-150px) scale(1.5); opacity: 0; }
+}
+@keyframes typing {
+    0% { content: "Generating."; }
+    33% { content: "Generating.."; }
+    66% { content: "Generating..."; }
+    100% { content: "Generating...."; }
+}
+.heart {
+    position: absolute;
+    color: red;
+    font-size: 24px;
+    opacity: 0.8;
+    animation: floatHearts 5s infinite ease-in-out;
+}
+.loading::after {
+    content: "Generating...";
+    display: inline-block;
+    animation: typing 1.5s infinite;
+}
+.letter-container {
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    white-space: pre-wrap;
+}
+.letter-container h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.letter-container p {
+    margin-bottom: 10px;
+    text-indent: 40px;
+}
+.letter-container .signature {
+    margin-top: 20px;
+    text-align: right;
+    font-style: italic;
+}

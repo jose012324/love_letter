@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Letter Card</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body class="bg-pink-100 min-h-screen flex flex-col justify-center items-center overflow-auto relative">
+    <div class="bg-white p-8 rounded-2xl shadow-2xl max-w-md w-full text-center transform transition-transform hover:scale-105 animate-fadeIn">
+        <button onclick="viewSavedLetters()" class="mt-4 px-6 py-3 bg-blue-500 text-white font-bold rounded-lg shadow-lg hover:bg-blue-700 transition-transform flex items-center justify-center">
+            <span class="mr-2">📜</span> View Saved Letters
+        </button>
+        <button onclick="clearAllLetters()" class="mt-4 px-6 py-3 bg-red-500 text-white font-bold rounded-lg shadow-lg hover:bg-red-700 transition-transform flex items-center justify-center">
+            <span class="mr-2">🗑️</span> Clear All
+        </button>
+        <h2 class="text-3xl font-bold text-pink-600 animate-pulse">💖 Love Letter Card 💌</h2>
+        <input type="text" id="yourName" placeholder="Your Name" class="mt-4 p-4 w-full border rounded-lg focus:ring focus:ring-pink-300">
+        <input type="text" id="partnerName" placeholder="Special Someone's Name" class="mt-4 p-4 w-full border rounded-lg focus:ring focus:ring-pink-300">
+        <textarea id="memory" placeholder="A special memory or inside joke..." class="mt-4 p-4 w-full border rounded-lg focus:ring focus:ring-pink-300"></textarea>
+        <select id="tone" class="mt-4 p-4 w-full border rounded-lg focus:ring focus:ring-pink-300">
+            <option value="Romantic">Romantic</option>
+            <option value="Funny">Funny</option>
+            <option value="Poetic">Poetic</option>
+        </select>
+        <button onclick="startGenerating()" class="mt-4 px-6 py-3 bg-pink-500 text-white font-bold rounded-lg shadow-lg hover:bg-pink-700 transition-transform transform hover:scale-110 flex items-center justify-center">
+            <span class="mr-2">✨</span> Generate Love Letter
+        </button>
+        <p class="loading mt-4 text-pink-600 font-semibold hidden" id="loadingText"></p>
+        <div id="letter" class="mt-4 p-6 bg-pink-50 border-l-4 border-pink-500 rounded-xl hidden animate-fadeIn text-lg font-semibold text-gray-700"></div>
+        <button onclick="saveLetter()" class="mt-4 px-6 py-3 bg-green-500 text-white font-bold rounded-lg shadow-lg hover:bg-green-700 transition-transform flex items-center justify-center">
+            <span class="mr-2">💾</span> Save Letter
+        </button>
+        <button onclick="generateCard()" class="mt-4 px-6 py-3 bg-purple-500 text-white font-bold rounded-lg shadow-lg hover:bg-purple-700 transition-transform flex items-center justify-center">
+            <span class="mr-2">🎴</span> Generate Valentine Card
+        </button>
+    </div>
+    <div id="savedLetters" class="mt-8 max-w-md w-full hidden">
+        <h3 class="text-2xl font-bold text-pink-600">Saved Love Letters</h3>
+        <div id="lettersList" class="mt-4"></div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
